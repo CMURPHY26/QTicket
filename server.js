@@ -74,9 +74,9 @@ app.get('/' , (req, res) => {
   });
 
   // wildcard route
-app.get("*", (req, res) => {
-    res.redirect("/tickets");
-  });
+// app.get("*", (req, res) => {
+//     res.redirect("/tickets");
+//   });
 
 
   // Web server:

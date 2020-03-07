@@ -13,6 +13,13 @@
             Welcome
         <% } %>
     </h2>
+    <% if (currentUser) { %>
+        <li>
+            <form action="/sessions?_method=DELETE" method="POST">
+            <input type="submit" value="LOGOUT">
+            </form>
+        </li>
+    <% } %>
 
 </body>
 </html>
