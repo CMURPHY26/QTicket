@@ -35,7 +35,7 @@ router.post("/", (req, res) => {
         } else {
             if(bcrypt.compareSync(req.body.password, foundUser.password)) {
                 req.session.currentUser = foundUser;
-                res.redirect("/");
+                res.render("../views/users/index.ejs",{ currentUser: foundUser,metaTitle: "User Tickets Page"});
             } else {
                 res.send("wrong password");
             }
