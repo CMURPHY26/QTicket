@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 
-const User =  require("../models/users.js")
+const User =  require("../models/users.js");
+const Ticket = require("../models/tickets");
 
 router.get('/new', (req, res) => {
     res.render('users/new.ejs', {metaTitle: "Register Your Account", currentUser: req.session.currentUser});
@@ -18,7 +19,9 @@ router.get('/new', (req, res) => {
 
 router.get("/", (req, res) => {
     if(req.session.currentUser) {
-        res.render("../views/users/index.ejs",{ currentUser: req.session.currentUser,metaTitle: "User Tickets Page"});
+        Ticket.find({username: req.session.currentUser.username}, (err, foundTickets) => {
+            res.render("../views/users/index.ejs",{ currentUser: req.session.currentUser, metaTitle: "User Tickets Page", tickets: foundTickets});
+        }) 
     } else {
         res.redirect("/sessions/new");
     }

@@ -3,6 +3,8 @@ const router = express.Router();
 const Ticket = require("../models/tickets");
 
 
+
+
 //NEW Tickets
 router.get("/new", (req, res) => {
     if(req.session.currentUser){
@@ -11,6 +13,13 @@ router.get("/new", (req, res) => {
         res.redirect("/sessions/new");
     }
 })
+
+//SHOW Ticket
+router.get("/:id", (req, res) => {
+    Ticket.findById(req.params.id, (err, foundTicket) => {
+        res.render("show.ejs", {ticket: foundTicket, metaTitle: "Ticket Page", currentUser: req.session.currentUser});
+    })
+});
 
 //CREATE Tickets
 router.post("/", (req, res) => {
@@ -23,7 +32,7 @@ router.post("/", (req, res) => {
 })
 
 
-//Tickets Index
+//INDEX Tickets
 router.get("/", (req, res) => {
     if(req.session.currentUser) {
         res.redirect("/users");
