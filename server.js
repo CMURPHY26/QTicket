@@ -57,7 +57,7 @@ app.use("/tickets", ticketsController);
 //___________________
 //localhost:3000 
 app.get('/' , (req, res) => {
-    res.send('Hello World!');
+    res.render("index.ejs", {metaTitle: "QTicket Login"});
   });
 
   // wildcard route
