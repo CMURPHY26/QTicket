@@ -1,6 +1,16 @@
 <nav>
     <ul>
-        <li><a href="/sessions/new">Log In</a></li>
-        <li><a href="/users/new">Register</a></li>
+        <% if(currentUser) { %>
+            <li>Logged In</li>
+            <li>
+                <form action="/sessions?_method=DELETE" method="POST">
+                <input type="submit" value="LOGOUT">
+                </form>
+            </li>
+            
+        <% } else { %>
+            <li><a href="/sessions/new">Log In</a></li>
+            <li><a href="/users/new">Register</a></li>
+       <% } %>
     </ul>
 </nav>

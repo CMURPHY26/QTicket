@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
 const ticketSchema = new mongoose.Schema({
-    issue: String,
-    request: String,
-    resolved: Boolean
+    name: {type:String, required: true },
+    request: {type:String, required: true },
+    resolved: {type:Boolean, default: false },
+    username: {type: String}
 });
 
 const Ticket = mongoose.model("Ticket", ticketSchema);

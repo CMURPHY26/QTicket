@@ -4,22 +4,16 @@
     <%- include("../partials/head.ejs") %>
 </head>
 <body>
-    <h1>QTicket Login</h1>
+    <h1>QTicket User Homepage</h1>
     <%- include("../partials/nav.ejs") %>
-    <% if (currentUser) { %>
-            <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="LOGOUT">
-            </form>
-    <% } %>
+    <a href="/tickets/new">Add new ticket</a>
     <h2>
         <% if (currentUser) { %>
             Welcome <%= currentUser.username %>!
-        <% } else { %>
-            Welcome
         <% } %>
     </h2>
     <% if (currentUser) { %>
-        <h3><a href="/tickets">View All Tickets</a></h3>
+        <h3>Submitted Tickets</h3>
     <% } %>
 
 </body>

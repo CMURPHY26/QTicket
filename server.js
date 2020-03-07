@@ -70,12 +70,14 @@ app.use("/sessions", sessionsController);
 //___________________
 //localhost:3000 
 app.get('/' , (req, res) => {
-    res.render("./sessions/new.ejs", {metaTitle: "QTicket Login", currentUser: req.session.currentUser});
+    res.redirect("/sessions/new");
   });
 
 //   wildcard route
 app.get("*", (req, res) => {
-    res.redirect("/");
+    if(!req.session.currentUser) {
+      res.redirect("/");
+    }
   });
 
 

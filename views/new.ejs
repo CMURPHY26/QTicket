@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs") %>
+</head>
+<body>
+    <h1>QTicket Login</h1>
+    <%- include("./partials/nav.ejs") %>
+    <form action="/tickets" method="POST" id="ticketform">
+        <label for="name">Issue/Update:</label>
+        <input type="text" name="name" id="name" required />
+        <label for="request">Request:</label>
+        <textarea name="request" form="ticketform">Enter text here...</textarea>
+        <input type="submit" value="SUBMIT TICKET" />
+    </form>
+</body>
+</html>
