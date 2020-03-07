@@ -15,16 +15,34 @@ router.delete("/", (req, res) => {
     });
 });
 
+//OLD basic login verification
+// router.post("/", (req, res) => {
+//     User.findOne({ username: req.body.username }, (err, foundUser) => {
+//         if(req.body.password === foundUser.password) {
+//             req.session.currentUser = foundUser;
+//             res.redirect("/");
+//         } else {
+//             res.send("wrong password");
+//         }
+//     })
+// });
+
 router.post("/", (req, res) => {
-    User.findOne({ username: req.body.username }, (err, foundUser) => {
-        if(req.body.password === foundUser.password) {
-            req.session.currentUser = foundUser;
+    User.findOne({username: req.body.username.toLowerCase()}, (err, foundUser) => {
+        if(!foundUser) {
+            // console.log(err);
             res.redirect("/");
         } else {
-            res.send("wrong password");
+            if(bcrypt.compareSync(req.body.password, foundUser.password)) {
+                req.session.currentUser = foundUser;
+                res.redirect("/");
+            } else {
+                res.send("wrong password");
+            }
         }
-    })
+    });
 });
+
 
 
 

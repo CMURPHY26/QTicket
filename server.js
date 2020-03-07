@@ -26,7 +26,7 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //For user session login
 app.use(session({
-    secret: "qkLU7Zfnrt#8$%kX'Ky~En9K!gwvJ(", //some random string
+    secret: process.env.SECRET, //some random string
     resave: false,
     saveUninitialized: false
 }));
