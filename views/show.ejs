@@ -9,7 +9,7 @@
     <% if (currentUser) { %>
         <h3><%= ticket.name %></h3>
         <h4><%= ticket.request %></h4>
-        <h4><a href="/tickets/edit">Edit this Ticket</a></h4>
+        <h4><a href="/tickets/<%=id%>/edit">Edit this Ticket</a></h4>
     <% } %>
 </body>
 </html>

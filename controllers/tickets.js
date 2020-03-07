@@ -16,10 +16,34 @@ router.get("/new", (req, res) => {
 
 //SHOW Ticket
 router.get("/:id", (req, res) => {
-    Ticket.findById(req.params.id, (err, foundTicket) => {
-        res.render("show.ejs", {ticket: foundTicket, metaTitle: "Ticket Page", currentUser: req.session.currentUser});
-    })
+    if(req.session.currentUser){
+        Ticket.findById(req.params.id, (err, foundTicket) => {
+            res.render("show.ejs", {ticket: foundTicket, metaTitle: "Ticket Page", currentUser: req.session.currentUser, id: req.params.id});
+        });
+    }else {
+        res.redirect("/sessions/new");
+    };
 });
+
+//EDIT Ticket
+router.get("/:id/edit", (req, res) => {
+    if(req.session.currentUser){
+
+        res.render("edit.ejs", {id: req.params.id, metaTitle: "Ticket Edit Page", currentUser: req.session.currentUser})
+    } else {
+        res.redirect("/sessions/new");
+    };
+});
+
+//UPDATE Ticket
+router.put("/:id", (req, res) => {
+    if(req.session.currentUser) {
+        req.body.username = req.session.currentUser.username;
+        Ticket.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, foundTicket) => {
+            res.redirect(`/tickets/${req.params.id}`);
+        })
+    }
+})
 
 //CREATE Tickets
 router.post("/", (req, res) => {
