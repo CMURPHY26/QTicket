@@ -73,10 +73,10 @@ app.get('/' , (req, res) => {
     res.render("index.ejs", {metaTitle: "QTicket Login", currentUser: req.session.currentUser});
   });
 
-  // wildcard route
-// app.get("*", (req, res) => {
-//     res.redirect("/tickets");
-//   });
+//   wildcard route
+app.get("*", (req, res) => {
+    res.redirect("/");
+  });
 
 
   // Web server:
