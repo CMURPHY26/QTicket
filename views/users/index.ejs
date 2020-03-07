@@ -6,17 +6,19 @@
 <body>
     <h1>QTicket User Homepage</h1>
     <%- include("../partials/nav.ejs") %>
-    <a href="/tickets/new">Add new ticket</a>
-    <h2>
+    
         <% if (currentUser) { %>
-            Welcome <%= currentUser.username %>!
+            <h2>Welcome <%= currentUser.username %>!</h2>
+            <h4><a href="/tickets/new">Add new ticket</a></h4>
         <% } %>
-    </h2>
+    
     <% if (currentUser) { %>
         <h3>Submitted Tickets</h3>
         <ul>
             <% for(let i = 0; i < tickets.length; i++) { %>
+                <% if(!tickets[i].resolved) { %>
                 <li><a href="/tickets/<%=tickets[i].id%>"><%=tickets[i].name%></a></li>
+                <% } %>
            <% } %>
         </ul>
     <% } %>

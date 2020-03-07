@@ -54,6 +54,7 @@ db.on('open' , ()=>{
 const ticketsController = require("./controllers/tickets.js");
 const usersController = require("./controllers/users.js");
 const sessionsController = require("./controllers/sessions.js");
+const resolvedTicketsController = require("./controllers/resolve.js");
 
 
 // any routes that come in for tickets should be sent
@@ -61,6 +62,7 @@ const sessionsController = require("./controllers/sessions.js");
 app.use("/tickets", ticketsController);
 app.use("/users", usersController);
 app.use("/sessions", sessionsController);
+app.use("/resolved", resolvedTicketsController);
 
 
 

@@ -45,7 +45,7 @@ router.put("/:id", (req, res) => {
             res.redirect(`/tickets/${req.params.id}`);
         })
     }
-})
+});
 
 //CREATE Tickets
 router.post("/", (req, res) => {
