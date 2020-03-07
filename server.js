@@ -45,9 +45,13 @@ db.on('open' , ()=>{
 });
 
 const ticketsController = require("./controllers/tickets.js");
-// any routes that come in for fruits should be sent
-// to the fruitsContoller
+const usersController = require("./controllers/users.js");
+
+
+// any routes that come in for tickets should be sent
+// to the ticketsContoller
 app.use("/tickets", ticketsController);
+app.use("/users", usersController);
 
 
 
