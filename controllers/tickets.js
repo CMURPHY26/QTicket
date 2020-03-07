@@ -14,6 +14,17 @@ router.get("/new", (req, res) => {
     }
 })
 
+
+//EDIT Ticket
+router.get("/:id/edit", (req, res) => {
+    if(req.session.currentUser){
+
+        res.render("edit.ejs", {id: req.params.id, metaTitle: "Ticket Edit Page", currentUser: req.session.currentUser})
+    } else {
+        res.redirect("/sessions/new");
+    };
+});
+
 //SHOW Ticket
 router.get("/:id", (req, res) => {
     if(req.session.currentUser){
@@ -25,15 +36,6 @@ router.get("/:id", (req, res) => {
     };
 });
 
-//EDIT Ticket
-router.get("/:id/edit", (req, res) => {
-    if(req.session.currentUser){
-
-        res.render("edit.ejs", {id: req.params.id, metaTitle: "Ticket Edit Page", currentUser: req.session.currentUser})
-    } else {
-        res.redirect("/sessions/new");
-    };
-});
 
 //UPDATE Ticket
 router.put("/:id", (req, res) => {
@@ -53,6 +55,17 @@ router.post("/", (req, res) => {
         console.log(createdTicket);
         res.redirect("/users");
     })
+})
+
+//DELETE Ticket
+router.delete("/:id", (req, res) => {
+    if(req.session.currentUser) {
+        Ticket.findByIdAndRemove(req.params.id, (err, deletedTicket) => {
+            res.redirect("/users");
+        })
+    } else {
+        res.redirect("/sessions/new");
+    }
 })
 
 
