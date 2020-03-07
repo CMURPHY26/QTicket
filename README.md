@@ -19,3 +19,6 @@ QTicket is a ticket system app that allows stakeholders to submit tickets to the
 ## Installation Instructions
 npm i
 
+### Trello:
+https://trello.com/b/xcc1h9lM/project-2
+
