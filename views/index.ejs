@@ -6,6 +6,9 @@
 <body>
     <h1>QTicket Login</h1>
     <%- include("./partials/nav.ejs") %>
+    <% if (currentUser) { %>
+        <h3><a href="/tickets">View All Tickets</a></h3>
+    <% } %>
     <h2>
         <% if (currentUser) { %>
             Welcome <%= currentUser.username %>!
