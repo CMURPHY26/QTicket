@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
+const session = require("express-session");
 const app = express();
 const db = mongoose.connection;
 ////Port
@@ -23,6 +24,12 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
+//For user session login
+app.use(session({
+    secret: "qkLU7Zfnrt#8$%kX'Ky~En9K!gwvJ(", //some random string
+    resave: false,
+    saveUninitialized: false
+}));
 
 
 
@@ -46,12 +53,14 @@ db.on('open' , ()=>{
 
 const ticketsController = require("./controllers/tickets.js");
 const usersController = require("./controllers/users.js");
+const sessionsController = require("./controllers/sessions.js");
 
 
 // any routes that come in for tickets should be sent
 // to the ticketsContoller
 app.use("/tickets", ticketsController);
 app.use("/users", usersController);
+app.use("/sessions", sessionsController);
 
 
 
@@ -61,7 +70,7 @@ app.use("/users", usersController);
 //___________________
 //localhost:3000 
 app.get('/' , (req, res) => {
-    res.render("index.ejs", {metaTitle: "QTicket Login"});
+    res.render("index.ejs", {metaTitle: "QTicket Login", currentUser: req.session.currentUser});
   });
 
   // wildcard route
