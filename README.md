@@ -22,3 +22,6 @@ npm i
 ### Trello:
 https://trello.com/b/xcc1h9lM/project-2
 
+### Wireframe:
+https://github.com/CMURPHY26/QTicket/blob/master/Wireframe.jpeg
+
