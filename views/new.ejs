@@ -6,6 +6,7 @@
 <body>
     <%- include("./partials/nav.ejs") %>
     <div class="ui raised very padded text container segment">
+        <h2 class="ui header">Add a Ticket</h2>
         <form class="ui form" action="/tickets" method="POST" id="ticketform">
             <div class="field">
               <label for="name">Issue/Update:</label>
@@ -17,5 +18,6 @@
             </div>
             <button class="ui button" type="submit">Submit</button>
           </form>
+    </div>  
 </body>
 </html>

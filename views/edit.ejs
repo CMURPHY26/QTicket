@@ -7,13 +7,17 @@
     <%- include("./partials/nav.ejs") %>
     <div class="ui raised very padded text container segment">
         <h2 class="ui header">Edit This Ticket</h2>
-        <form action="/tickets/<%=id%>?_method=PUT" method="POST" id="ticketform">
-            <label for="name">Issue/Update:</label>
-            <input type="text" name="name" id="name" required /> <br />
-            <label for="request">Request:</label>
-            <textarea name="request" form="ticketform" placeholder="Enter text here..."></textarea><br />
-            <input type="submit" value="UPDATE TICKET" />
-        </form>
+        <form class="ui form" action="/tickets/<%=id%>?_method=PUT" method="POST" id="ticketform">
+            <div class="field">
+              <label for="name">Issue/Update:</label>
+              <input type="text" name="name" id="name" required placeholder="Issue/Update">
+            </div>
+            <div class="field">
+              <label for="request">Request:</label>
+              <textarea name="request" form="ticketform" placeholder="Enter text here..."></textarea>
+            </div>
+            <button class="ui button" type="submit">Update</button>
+          </form>
       </div>
 </body>
 </html>
