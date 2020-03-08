@@ -18,7 +18,7 @@
                 <div class="event">
                   <div class="content">
                     <div class="summary">
-                        <h4>Request: <%= ticket.request %></h4>
+                        <h4>Request: <br /><%= ticket.request %></h4>
                     </div>
                   </div>
                 </div>
@@ -28,13 +28,13 @@
           <div class="ui card">
             <div class="content">
                 <a href="/tickets/<%=id%>/edit">
-                    <button class="ui button" >EDIT TICKET</button>
-                </a><br /><br />
-                <form class="ui form" action="/tickets/<%=id%>?_method=DELETE" method="POST">
-                    <button class="ui button" type="submit">DELETE</button>
-                </form><br />
+                    <button class="ui fluid button" >EDIT TICKET</button>
+                </a><br />
                 <form class="ui form" action="/resolved/<%=id%>?_method=PUT" method="POST">
-                    <button class="ui button" type="submit">RESOLVE TICKET</button>
+                  <button class="ui fluid button" type="submit">RESOLVE TICKET</button>
+                </form><br />
+                <form class="ui form" action="/tickets/<%=id%>?_method=DELETE" method="POST">
+                    <button class="ui fluid button" type="submit">DELETE</button>
                 </form>
             </div>
         </div>
