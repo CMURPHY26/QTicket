@@ -6,12 +6,40 @@
 <body>
     <h1>QTicket Login</h1>
     <%- include("../partials/nav.ejs") %>
-    <form action="/sessions" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required />
-        <label for="password">Password:</label>
-        <input type="text" name="password" id="password" required />
-        <input type="submit" value="LOGIN" />
+
+    <div id="login" class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <!-- <img src="assets/images/logo.png" class="image"> -->
+      <div class="content">
+        Log-in to your account
+      </div>
+    </h2>
+    <form class="ui large form" action="/sessions" method="POST">
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="username" placeholder="Username">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="Password">
+          </div>
+        </div>
+        <input type="submit" class="ui fluid large teal submit button" value="Login" />
+      </div>
+
+      <div class="ui error message"></div>
+
     </form>
+
+    <div class="ui message">
+      New to us? <a href="/users/new">Sign Up</a>
+    </div>
+  </div>
+</div>
 </body>
 </html>
