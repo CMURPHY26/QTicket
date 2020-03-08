@@ -8,14 +8,16 @@
     <% if (currentUser) { %>
         <div class="ui raised very padded text container segment">
             <h2 class="ui header">Ticket Details</h2>
-            <h3><%= ticket.name %></h3>
-        <h4><%= ticket.request %></h4>
-        <h4><a href="/tickets/<%=id%>/edit">Edit this Ticket</a></h4>
-        <form action="/tickets/<%=id%>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE">
-        </form>
-        <form action="/resolved/<%=id%>?_method=PUT" method="POST">
-            <input type="submit" value="RESOLVE TICKET">
+            <h3>Ticket: <%= ticket.name %></h3>
+        <h4>Request: <%= ticket.request %></h4>
+        <a href="/tickets/<%=id%>/edit">
+            <button class="ui button" >EDIT TICKET</button>
+        </a><br /><br />
+        <form class="ui form" action="/tickets/<%=id%>?_method=DELETE" method="POST">
+            <button class="ui button" type="submit">DELETE</button>
+        </form><br />
+        <form class="ui form" action="/resolved/<%=id%>?_method=PUT" method="POST">
+            <button class="ui button" type="submit">RESOLVE TICKET</button>
         </form>
     </div>
     <% } %>
