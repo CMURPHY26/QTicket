@@ -21,9 +21,17 @@ body {
   }
 
   .signup-register {
-    color: #9627BA;
+    color: #4D0068;
   }
 
   .signup-register:hover {
     color: #009C95;
+  }
+
+  .purple {
+    background-color: #4D0068 !important;
+  }
+
+  .ui.image.header {
+    color: #4D0068 !important;
   }

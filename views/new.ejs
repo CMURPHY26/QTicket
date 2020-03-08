@@ -5,13 +5,15 @@
 </head>
 <body>
     <%- include("./partials/nav.ejs") %>
-    <h1>Add a New Ticket</h1>
-    <form action="/tickets" method="POST" id="ticketform">
-        <label for="name">Issue/Update:</label>
-        <input type="text" name="name" id="name" required />
-        <label for="request">Request:</label>
-        <textarea name="request" form="ticketform" placeholder="Enter text here..."></textarea>
-        <input type="submit" value="SUBMIT TICKET" />
-    </form>
+    <div class="ui raised very padded text container segment">
+        <h2 class="ui header">Add a New Ticket</h2>
+        <form action="/tickets" method="POST" id="ticketform">
+            <label for="name">Issue/Update:</label>
+            <input type="text" name="name" id="name" required /><br />
+            <label for="request">Request:</label>
+            <textarea name="request" form="ticketform" placeholder="Enter text here..."></textarea><br />
+            <input type="submit" value="SUBMIT TICKET" />
+        </form>
+      </div>
 </body>
 </html>

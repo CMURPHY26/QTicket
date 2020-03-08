@@ -6,8 +6,9 @@
 <body>
     <%- include("./partials/nav.ejs") %>
     <% if (currentUser) { %>
-        <h1>Ticket Details</h1>
-        <h3><%= ticket.name %></h3>
+        <div class="ui raised very padded text container segment">
+            <h2 class="ui header">Ticket Details</h2>
+            <h3><%= ticket.name %></h3>
         <h4><%= ticket.request %></h4>
         <h4><a href="/tickets/<%=id%>/edit">Edit this Ticket</a></h4>
         <form action="/tickets/<%=id%>?_method=DELETE" method="POST">
@@ -16,6 +17,8 @@
         <form action="/resolved/<%=id%>?_method=PUT" method="POST">
             <input type="submit" value="RESOLVE TICKET">
         </form>
+    </div>
     <% } %>
+     
 </body>
 </html>

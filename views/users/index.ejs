@@ -11,15 +11,17 @@
         <% } %>
     
     <% if (currentUser) { %>
-        <h3>Submitted Tickets</h3>
-        <ul>
-            <% for(let i = 0; i < tickets.length; i++) { %>
-                <% if(!tickets[i].resolved) { %>
-                <li><a href="/tickets/<%=tickets[i].id%>"><%=tickets[i].name%></a></li>
-                <% } %>
-           <% } %>
-        </ul>
-    <% } %>
+        <div class="ui raised very padded text container segment">
+            <h2 class="ui header">Submitted Tickets</h2>
+            <ul>
+                <% for(let i = 0; i < tickets.length; i++) { %>
+                    <% if(!tickets[i].resolved) { %>
+                    <li><a href="/tickets/<%=tickets[i].id%>"><%=tickets[i].name%></a></li>
+                    <% } %>
+               <% } %>
+            </ul>
+        </div>
+        <% } %>
 
 </body>
 </html>
