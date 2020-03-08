@@ -20,7 +20,7 @@ body {
     margin-top: 0;
   }
 
-  .signup-register {
+  .signup-register, .header > a {
     color: #4D0068;
   }
 
@@ -32,6 +32,11 @@ body {
     background-color: #4D0068 !important;
   }
 
-  .ui.image.header {
+  .ui.image.header, .ui.header, .header, .welcome {
     color: #4D0068 !important;
+  }
+
+  .welcome {
+    margin-top: 1em;
+    text-align: center;
   }

@@ -8,24 +8,25 @@
     <% if (currentUser) { %>
         <div class="ui raised very padded text container segment">
         <div class="ui cards">    
-        <div class="ui card">
+        <div class="ui fluid card">
             <div class="content">
               <div class="header">Ticket Details</div>
             </div>
             <div class="content">
-              <h4 class="ui sub header">Ticket: <%= ticket.name %></h4>
+              <h3 class="ui header">Ticket: <%= ticket.name %></h3>
               <div class="ui small feed">
                 <div class="event">
                   <div class="content">
                     <div class="summary">
                         <h4>Request: <br /><%= ticket.request %></h4>
+                        <h4>Created: <br /><%= ticket.createdAt %></h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="ui card">
+          <div class="ui fluid card">
             <div class="content">
                 <a href="/tickets/<%=id%>/edit">
                     <button class="ui fluid button" >EDIT TICKET</button>
@@ -35,8 +36,11 @@
                 </form><br />
                 <form class="ui form" action="/tickets/<%=id%>?_method=DELETE" method="POST">
                     <button class="ui fluid button" type="submit">DELETE</button>
-                </form>
-            </div>
+                </form><br />
+                <a href="/users/">
+                  <button class="ui fluid button" >BACK</button>
+              </a>
+              </div>
         </div>
     </div>
     <% } %>

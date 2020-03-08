@@ -7,19 +7,33 @@
     <%- include("../partials/nav.ejs") %>
     
         <% if (currentUser) { %>
-            <h2>Welcome <%= currentUser.username %>!</h2>
+            <div class="welcome">
+                <h2>Welcome <%= currentUser.username %>!</h2>
+            </div>
         <% } %>
     
     <% if (currentUser) { %>
         <div class="ui raised very padded text container segment">
             <h2 class="ui header">Submitted Tickets</h2>
-            <ul>
+                <div class="ui centered cards">
                 <% for(let i = 0; i < tickets.length; i++) { %>
                     <% if(!tickets[i].resolved) { %>
-                    <li><a href="/tickets/<%=tickets[i].id%>"><%=tickets[i].name%></a></li>
+                                <div class="card">
+                                    <div class="content">
+                                        <div class="header">
+                                            <a href="/tickets/<%=tickets[i].id%>">
+                                                <%=tickets[i].name%>
+                                            </a>
+                                        </div>
+                                        <div class="meta">user: <%=tickets[i].username%></div>
+                                        <div class="description">
+                                            <%=tickets[i].request.substring(0, 100)%>...
+                                        </div>
+                                    </div>
+                                </div>
                     <% } %>
                <% } %>
-            </ul>
+            </div>
         </div>
         <% } %>
 
