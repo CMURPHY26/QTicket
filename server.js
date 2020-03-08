@@ -65,7 +65,8 @@ app.use("/sessions", sessionsController);
 app.use("/resolved", resolvedTicketsController);
 
 
-
+const Ticket = require("./models/tickets.js");
+const User =  require("./models/users.js");
 
 //___________________
 // Routes
@@ -74,6 +75,83 @@ app.use("/resolved", resolvedTicketsController);
 app.get('/' , (req, res) => {
     res.redirect("/sessions/new");
   });
+
+app.get("/seed", (req, res) => {
+    User.create(
+      {
+      isAdmin:false,
+      username:"laurenl",
+      password:"$2b$10$N2gHjrzjj/m2kqADiOdk6ewBX2IqYMwGq..ReFkX5mw1jhPVuI1rm"
+    }, (err, createdUser) => {
+      console.log(createdUser)
+    });
+
+  Ticket.create(
+    [
+    { 
+      resolved:false,
+      name:"New 1",
+      request:"Leggings polaroid four dollar toast banh mi DIY marfa affogato tote bag brooklyn wayfarers yuccie umami aesthetic slow-carb. Chia gastropub gochujang roof party la croix. Pour-over cred small batch woke listicle shoreditch. Street art copper mug poutine lo-fi disrupt swag, hashtag yr bitters kickstarter art party godard bushwick brunch. Art party bespoke vape, succulents stumptown irony quinoa sustainable cold-pressed bushwick cray ennui vexillologist. Hammock literally man braid kickstarter selvage.",
+      username:"laurenl"
+    },
+    {
+      resolved:false,
+      name:"New 2",
+      request:"Leggings polaroid four dollar toast banh mi DIY marfa affogato tote bag brooklyn wayfarers yuccie umami aesthetic slow-carb. Chia gastropub gochujang roof party la croix. Pour-over cred small batch woke listicle shoreditch. Street art copper mug poutine lo-fi disrupt swag, hashtag yr bitters kickstarter art party godard bushwick brunch. Art party bespoke vape, succulents stumptown irony quinoa sustainable cold-pressed bushwick cray ennui vexillologist. Hammock literally man braid kickstarter selvage.",
+      username:"laurenl"
+    },
+    {resolved:false,
+      name:"New 3",
+      request:"Leggings polaroid four dollar toast banh mi DIY marfa affogato tote bag brooklyn wayfarers yuccie umami aesthetic slow-carb. Chia gastropub gochujang roof party la croix. Pour-over cred small batch woke listicle shoreditch. Street art copper mug poutine lo-fi disrupt swag, hashtag yr bitters kickstarter art party godard bushwick brunch. Art party bespoke vape, succulents stumptown irony quinoa sustainable cold-pressed bushwick cray ennui vexillologist. Hammock literally man braid kickstarter selvage.",
+      username:"laurenl"
+    },
+    {
+      resolved:false,
+      name:"New 4",
+      request:"Leggings polaroid four dollar toast banh mi DIY marfa affogato tote bag brooklyn wayfarers yuccie umami aesthetic slow-carb. Chia gastropub gochujang roof party la croix. Pour-over cred small batch woke listicle shoreditch. Street art copper mug poutine lo-fi disrupt swag, hashtag yr bitters kickstarter art party godard bushwick brunch. Art party bespoke vape, succulents stumptown irony quinoa sustainable cold-pressed bushwick cray ennui vexillologist. Hammock literally man braid kickstarter selvage.",
+      username:"laurenl"
+    },
+    {
+      resolved:false,
+      name:"New 5",
+      request:"Leggings polaroid four dollar toast banh mi DIY marfa affogato tote bag brooklyn wayfarers yuccie umami aesthetic slow-carb. Chia gastropub gochujang roof party la croix. Pour-over cred small batch woke listicle shoreditch. Street art copper mug poutine lo-fi disrupt swag, hashtag yr bitters kickstarter art party godard bushwick brunch. Art party bespoke vape, succulents stumptown irony quinoa sustainable cold-pressed bushwick cray ennui vexillologist. Hammock literally man braid kickstarter selvage.",
+      username:"laurenl"
+    },
+    {
+      resolved:false,
+      name:"New 6",
+      request:"Leggings polaroid four dollar toast banh mi DIY marfa affogato tote bag brooklyn wayfarers yuccie umami aesthetic slow-carb. Chia gastropub gochujang roof party la croix. Pour-over cred small batch woke listicle shoreditch. Street art copper mug poutine lo-fi disrupt swag, hashtag yr bitters kickstarter art party godard bushwick brunch. Art party bespoke vape, succulents stumptown irony quinoa sustainable cold-pressed bushwick cray ennui vexillologist. Hammock literally man braid kickstarter selvage.",
+      username:"laurenl"
+    },
+    {resolved:false,
+      name:"New 7",
+      request:"Leggings polaroid four dollar toast banh mi DIY marfa affogato tote bag brooklyn wayfarers yuccie umami aesthetic slow-carb. Chia gastropub gochujang roof party la croix. Pour-over cred small batch woke listicle shoreditch. Street art copper mug poutine lo-fi disrupt swag, hashtag yr bitters kickstarter art party godard bushwick brunch. Art party bespoke vape, succulents stumptown irony quinoa sustainable cold-pressed bushwick cray ennui vexillologist. Hammock literally man braid kickstarter selvage.",
+      username:"laurenl"
+    },
+    {
+      resolved:false,
+      name:"New 8",
+      request:"Leggings polaroid four dollar toast banh mi DIY marfa affogato tote bag brooklyn wayfarers yuccie umami aesthetic slow-carb. Chia gastropub gochujang roof party la croix. Pour-over cred small batch woke listicle shoreditch. Street art copper mug poutine lo-fi disrupt swag, hashtag yr bitters kickstarter art party godard bushwick brunch. Art party bespoke vape, succulents stumptown irony quinoa sustainable cold-pressed bushwick cray ennui vexillologist. Hammock literally man braid kickstarter selvage.",
+      username:"laurenl"
+    },
+    {
+      resolved:false,
+      name:"New 9",
+      request:"Leggings polaroid four dollar toast banh mi DIY marfa affogato tote bag brooklyn wayfarers yuccie umami aesthetic slow-carb. Chia gastropub gochujang roof party la croix. Pour-over cred small batch woke listicle shoreditch. Street art copper mug poutine lo-fi disrupt swag, hashtag yr bitters kickstarter art party godard bushwick brunch. Art party bespoke vape, succulents stumptown irony quinoa sustainable cold-pressed bushwick cray ennui vexillologist. Hammock literally man braid kickstarter selvage.",
+      username:"laurenl"
+    },
+    {
+      resolved:false,
+      name:"New 10",
+      request:"Leggings polaroid four dollar toast banh mi DIY marfa affogato tote bag brooklyn wayfarers yuccie umami aesthetic slow-carb. Chia gastropub gochujang roof party la croix. Pour-over cred small batch woke listicle shoreditch. Street art copper mug poutine lo-fi disrupt swag, hashtag yr bitters kickstarter art party godard bushwick brunch. Art party bespoke vape, succulents stumptown irony quinoa sustainable cold-pressed bushwick cray ennui vexillologist. Hammock literally man braid kickstarter selvage.",
+      username:"laurenl"
+    }
+    ], (err, createdTickets) =>{
+    console.log(createdTickets)
+    res.redirect("/");
+  });
+});
+
 
 //   wildcard route
 app.get("*", (req, res) => {
