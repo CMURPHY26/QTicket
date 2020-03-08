@@ -3,14 +3,11 @@
 <head>
     <%- include("../partials/head.ejs") %>
 </head>
-<body>
-    <h1>QTicket User Homepage</h1>
-      
+<body>  
     <%- include("../partials/nav.ejs") %>
     
         <% if (currentUser) { %>
             <h2>Welcome <%= currentUser.username %>!</h2>
-            <h4><a href="/tickets/new">Add new ticket</a></h4>
         <% } %>
     
     <% if (currentUser) { %>

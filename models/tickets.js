@@ -5,7 +5,7 @@ const ticketSchema = new mongoose.Schema({
     request: {type:String, required: true },
     resolved: {type:Boolean, default: false },
     username: {type: String}
-});
+},{timestamps: true});
 
 const Ticket = mongoose.model("Ticket", ticketSchema);
 

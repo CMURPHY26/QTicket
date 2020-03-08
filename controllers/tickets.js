@@ -18,8 +18,11 @@ router.get("/new", (req, res) => {
 //EDIT Ticket
 router.get("/:id/edit", (req, res) => {
     if(req.session.currentUser){
-
-        res.render("edit.ejs", {id: req.params.id, metaTitle: "Ticket Edit Page", currentUser: req.session.currentUser})
+        res.render("edit.ejs", {
+            id: req.params.id, 
+            metaTitle: "Ticket Edit Page", 
+            currentUser: req.session.currentUser
+        });
     } else {
         res.redirect("/sessions/new");
     };

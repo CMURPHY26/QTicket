@@ -1,25 +1,27 @@
 <nav>
     <div class="ui secondary pointing menu">
         <a class="active item" href="/users">
-          Home
+          <img id="logo" class="ui tiny image" src="../../img/QTicketLogo.jpg">
         </a>
         <% if(currentUser) { %>
-        <a class="item" href="">
-          Add New Ticket
-        </a>
         <div class="right menu">
           <div class="ui item">
+          <a href="/tickets/new">
+            <button class="ui purple button">Add a Ticket</button>
+          </a>
+        </div>
+          <div class="ui item">
             <form action="/sessions?_method=DELETE" method="POST">
-                <input type="submit" value="LOGOUT">
+                <input class="ui purple button" type="submit" value="LOGOUT">
             </form>
         </div>
         <% } else { %>
-            <a class="item" href="/sessions/new">
-                Log In
+          <div class="right menu">
+            <a class="ui item" href="/sessions/new">
+              <button class="ui purple button">Log In</button>
               </a>
-              <div class="right menu">
                 <a class="ui item" href="/users/new">
-                    Register
+                  <button class="ui purple button">Register</button>
                 </a>
         </div>
         <% } %>

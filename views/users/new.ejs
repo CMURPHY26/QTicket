@@ -4,14 +4,13 @@
     <%- include("../partials/head.ejs") %>
 </head>
 <body>
-    <h1>QTicket Register Your Account</h1>
     <%- include("../partials/nav.ejs") %>
     <div id="login" class="ui middle aligned center aligned grid">
         <div class="column">
-          <h2 class="ui teal image header">
+          <h2 class="ui purple image header">
             <!-- <img src="assets/images/logo.png" class="image"> -->
             <div class="content">
-              Register your account
+              Register
             </div>
           </h2>
           <form class="ui large form" action="/users" method="POST">
@@ -28,14 +27,14 @@
                   <input type="password" name="password" placeholder="Password">
                 </div>
               </div>
-              <input type="submit" class="ui fluid large teal submit button" value="Register" />
+              <input type="submit" class="ui fluid large purple submit button" value="Register" />
             </div>
       
             <div class="ui error message"></div>
       
           </form>
           <div class="ui message">
-            Already have a username? <a href="/sessions/new">Log In</a>
+            Already have a username? <a class="signup-register" href="/sessions/new">Log In</a>
           </div>
         </div>
       </div>

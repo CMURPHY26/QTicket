@@ -4,8 +4,8 @@
     <%- include("./partials/head.ejs") %>
 </head>
 <body>
-    <h1>QTicket Edit Your Ticket</h1>
     <%- include("./partials/nav.ejs") %>
+    <h1>Edit This Ticket</h1>
     <form action="/tickets/<%=id%>?_method=PUT" method="POST" id="ticketform">
         <label for="name">Issue/Update:</label>
         <input type="text" name="name" id="name" required />
