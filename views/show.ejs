@@ -7,18 +7,37 @@
     <%- include("./partials/nav.ejs") %>
     <% if (currentUser) { %>
         <div class="ui raised very padded text container segment">
-            <h2 class="ui header">Ticket Details</h2>
-            <h3>Ticket: <%= ticket.name %></h3>
-        <h4>Request: <%= ticket.request %></h4>
-        <a href="/tickets/<%=id%>/edit">
-            <button class="ui button" >EDIT TICKET</button>
-        </a><br /><br />
-        <form class="ui form" action="/tickets/<%=id%>?_method=DELETE" method="POST">
-            <button class="ui button" type="submit">DELETE</button>
-        </form><br />
-        <form class="ui form" action="/resolved/<%=id%>?_method=PUT" method="POST">
-            <button class="ui button" type="submit">RESOLVE TICKET</button>
-        </form>
+        <div class="ui cards">    
+        <div class="ui card">
+            <div class="content">
+              <div class="header">Ticket Details</div>
+            </div>
+            <div class="content">
+              <h4 class="ui sub header">Ticket: <%= ticket.name %></h4>
+              <div class="ui small feed">
+                <div class="event">
+                  <div class="content">
+                    <div class="summary">
+                        <h4>Request: <%= ticket.request %></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui card">
+            <div class="content">
+                <a href="/tickets/<%=id%>/edit">
+                    <button class="ui button" >EDIT TICKET</button>
+                </a><br /><br />
+                <form class="ui form" action="/tickets/<%=id%>?_method=DELETE" method="POST">
+                    <button class="ui button" type="submit">DELETE</button>
+                </form><br />
+                <form class="ui form" action="/resolved/<%=id%>?_method=PUT" method="POST">
+                    <button class="ui button" type="submit">RESOLVE TICKET</button>
+                </form>
+            </div>
+        </div>
     </div>
     <% } %>
      
