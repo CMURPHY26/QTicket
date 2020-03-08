@@ -1,16 +1,27 @@
 <nav>
-    <ul>
+    <div class="ui secondary pointing menu">
+        <a class="active item" href="/users">
+          Home
+        </a>
         <% if(currentUser) { %>
-            <li>Logged In</li>
-            <li>
-                <form action="/sessions?_method=DELETE" method="POST">
+        <a class="item" href="">
+          Add New Ticket
+        </a>
+        <div class="right menu">
+          <div class="ui item">
+            <form action="/sessions?_method=DELETE" method="POST">
                 <input type="submit" value="LOGOUT">
-                </form>
-            </li>
-            
+            </form>
+        </div>
         <% } else { %>
-            <li><a href="/sessions/new">Log In</a></li>
-            <li><a href="/users/new">Register</a></li>
-       <% } %>
-    </ul>
+            <a class="item" href="/sessions/new">
+                Log In
+              </a>
+              <div class="right menu">
+                <a class="ui item" href="/users/new">
+                    Register
+                </a>
+        </div>
+        <% } %>
+      </div>
 </nav>
