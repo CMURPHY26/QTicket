@@ -36,6 +36,10 @@ body {
     color: #4D0068 !important;
   }
 
+  .raised.very.padded.text.container.segment {
+    margin-bottom: 100px;
+  }
+
   .welcome {
     margin-top: 1em;
     text-align: center;
