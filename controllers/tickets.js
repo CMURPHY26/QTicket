@@ -17,15 +17,18 @@ router.get("/new", (req, res) => {
 
 //EDIT Ticket
 router.get("/:id/edit", (req, res) => {
-    if(req.session.currentUser){
-        res.render("edit.ejs", {
-            id: req.params.id, 
-            metaTitle: "Ticket Edit Page", 
-            currentUser: req.session.currentUser
-        });
-    } else {
-        res.redirect("/sessions/new");
-    };
+    Ticket.findById(req.params.id, (err, foundTicket) => {
+        if(req.session.currentUser){
+            res.render("edit.ejs", {
+                id: req.params.id, 
+                metaTitle: "Ticket Edit Page", 
+                currentUser: req.session.currentUser,
+                ticket: foundTicket
+            });
+        } else {
+            res.redirect("/sessions/new");
+        };
+    });
 });
 
 //SHOW Ticket

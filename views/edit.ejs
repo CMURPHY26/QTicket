@@ -10,11 +10,11 @@
         <form class="ui form" action="/tickets/<%=id%>?_method=PUT" method="POST" id="ticketform">
             <div class="field">
               <label for="name">Issue/Update:</label>
-              <input type="text" name="name" id="name" required placeholder="Issue/Update">
+              <input type="text" name="name" id="name" required value="<%=ticket.name%>">
             </div>
             <div class="field">
               <label for="request">Request:</label>
-              <textarea name="request" form="ticketform" placeholder="Enter text here..."></textarea>
+              <textarea name="request" form="ticketform"><%=ticket.request%></textarea>
             </div>
             <button class="ui button" type="submit">Update</button>
           </form><br />
