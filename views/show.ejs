@@ -19,7 +19,8 @@
                   <div class="content">
                     <div class="summary">
                         <h4>Request: <br /><%= ticket.request %></h4>
-                        <h4>Created: <br /><%= ticket.createdAt %></h4>
+                        <h4>Created: <br /><%= ticket.createdAt.toDateString() %></h4>
+                        <h4>Updated: <br /><%= ticket.updatedAt.toDateString() %></h4>
                     </div>
                   </div>
                 </div>
