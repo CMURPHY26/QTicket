@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head.ejs") %>
+</head>
+<body>  
+    <%- include("../partials/nav.ejs") %>
+    
+        <% if (currentUser) { %>
+            <div class="welcome">
+                <h2>Welcome <%= currentUser.username %>!</h2>
+            </div>
+        <% } %>
+    
+    <% if (currentUser) { %>
+        <div class="ui raised very padded text container segment">
+            <h2 class="ui header">Users</h2>
+                <div class="ui centered cards">
+                <% for(let i = 0; i < users.length; i++) { %>
+                    <% if (!users[i].isAdmin) { %>
+                    <div class="card">
+                        <div class="content">
+                            <div class="header">
+                                <a href="/admin/<%= users[i].id%>">
+                                    <%=users[i].username%>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+               <% } %>
+            </div>
+        </div>
+        <% } %>
+
+</body>
+</html>

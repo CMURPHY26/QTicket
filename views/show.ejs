@@ -38,9 +38,15 @@
                 <form class="ui form" action="/tickets/<%=id%>?_method=DELETE" method="POST">
                     <button class="ui fluid button" type="submit">DELETE</button>
                 </form><br />
+                <% if(!currentUser.isAdmin) { %>
                 <a href="/users/">
-                  <button class="ui fluid button" >BACK</button>
-              </a>
+                    <button class="ui fluid button" >BACK</button>
+                </a>
+                <% } else { %>
+                  <a href="/admin/<%=userid%>">
+                    <button class="ui fluid button" >BACK</button>
+                </a>
+                <%  } %>
               </div>
         </div>
     </div>

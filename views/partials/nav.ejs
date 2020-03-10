@@ -1,15 +1,21 @@
 <nav>
     <div class="ui secondary pointing menu">
-        <a class="active item" href="/users">
+        <%if (currentUser === undefined || !currentUser.isAdmin) { %>
+          <a class="active item" href="/users">
+        <% } else if(currentUser.isAdmin){ %>
+          <a class="active item" href="/admin">
+        <% } %>
           <img id="logo" class="ui tiny image" src="../../img/QTicketLogo.jpg">
         </a>
         <% if(currentUser) { %>
         <div class="right menu">
+          <% if(!currentUser.isAdmin) { %>
           <div class="ui item">
           <a href="/tickets/new">
             <button class="ui purple button">Add a Ticket</button>
           </a>
         </div>
+        <% } %>
           <div class="ui item">
             <form action="/sessions?_method=DELETE" method="POST">
                 <input class="ui purple button" type="submit" value="LOGOUT">

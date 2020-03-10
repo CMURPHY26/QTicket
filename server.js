@@ -53,16 +53,20 @@ db.on('open' , ()=>{
 
 const ticketsController = require("./controllers/tickets.js");
 const usersController = require("./controllers/users.js");
+const adminTicketsController = require("./controllers/admin.js");
 const sessionsController = require("./controllers/sessions.js");
 const resolvedTicketsController = require("./controllers/resolve.js");
+
 
 
 // any routes that come in for tickets should be sent
 // to the ticketsContoller
 app.use("/tickets", ticketsController);
 app.use("/users", usersController);
+app.use("/admin", adminTicketsController);
 app.use("/sessions", sessionsController);
 app.use("/resolved", resolvedTicketsController);
+
 
 
 const Ticket = require("./models/tickets.js");
@@ -78,11 +82,33 @@ app.get('/' , (req, res) => {
 
 app.get("/seed", (req, res) => {
     User.create(
-      {
-      isAdmin:false,
-      username:"laurenl",
-      password:"$2b$10$N2gHjrzjj/m2kqADiOdk6ewBX2IqYMwGq..ReFkX5mw1jhPVuI1rm"
-    }, (err, createdUser) => {
+      [
+        {
+        isAdmin:false,
+        username:"laurenl",
+        password:"$2b$10$N2gHjrzjj/m2kqADiOdk6ewBX2IqYMwGq..ReFkX5mw1jhPVuI1rm"
+        },
+        {
+          isAdmin:false,
+          username:"stephaniem",
+          password:"$2b$10$N2gHjrzjj/m2kqADiOdk6ewBX2IqYMwGq..ReFkX5mw1jhPVuI1rm"
+        },
+        {
+          isAdmin:false,
+          username:"brianl",
+          password:"$2b$10$N2gHjrzjj/m2kqADiOdk6ewBX2IqYMwGq..ReFkX5mw1jhPVuI1rm"
+        },
+        {
+          isAdmin:false,
+          username:"allenf",
+          password:"$2b$10$N2gHjrzjj/m2kqADiOdk6ewBX2IqYMwGq..ReFkX5mw1jhPVuI1rm"
+        },
+        {
+          isAdmin:true,
+          username:"chrism",
+          password:"$2b$10$N2gHjrzjj/m2kqADiOdk6ewBX2IqYMwGq..ReFkX5mw1jhPVuI1rm"
+        }
+    ], (err, createdUser) => {
       console.log(createdUser)
     });
 

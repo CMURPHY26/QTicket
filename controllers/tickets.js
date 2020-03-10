@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Ticket = require("../models/tickets");
-
+const User =  require("../models/users.js");
 
 
 
@@ -35,7 +35,10 @@ router.get("/:id/edit", (req, res) => {
 router.get("/:id", (req, res) => {
     if(req.session.currentUser){
         Ticket.findById(req.params.id, (err, foundTicket) => {
-            res.render("show.ejs", {ticket: foundTicket, metaTitle: "Ticket Page", currentUser: req.session.currentUser, id: req.params.id});
+            User.findOne({username:foundTicket.username}, (err, foundUser) => {
+                // console.log(foundUser)
+                res.render("show.ejs", {ticket: foundTicket, metaTitle: "Ticket Page", currentUser: req.session.currentUser, id: req.params.id, userid: foundUser.id});
+            })
         });
     }else {
         res.redirect("/sessions/new");
@@ -46,7 +49,7 @@ router.get("/:id", (req, res) => {
 //UPDATE Ticket
 router.put("/:id", (req, res) => {
     if(req.session.currentUser) {
-        req.body.username = req.session.currentUser.username;
+        // req.body.username = req.session.currentUser.username;
         Ticket.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, foundTicket) => {
             res.redirect(`/tickets/${req.params.id}`);
         })
@@ -67,7 +70,13 @@ router.post("/", (req, res) => {
 router.delete("/:id", (req, res) => {
     if(req.session.currentUser) {
         Ticket.findByIdAndRemove(req.params.id, (err, deletedTicket) => {
-            res.redirect("/users");
+            User.findOne({username:deletedTicket.username}, (err, foundUser) => {
+                if(!req.session.currentUser.isAdmin) {
+                    res.redirect("/users");
+                } else {
+                    res.redirect(`/admin/${foundUser.id}`);
+                }
+            })
         })
     } else {
         res.redirect("/sessions/new");

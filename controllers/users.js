@@ -22,9 +22,9 @@ router.get('/new', (req, res) => {
 //INDEX Users
 router.get("/", (req, res) => {
     if(req.session.currentUser) {
-        Ticket.find({username: req.session.currentUser.username}, (err, foundTickets) => {
-            res.render("../views/users/index.ejs",{ currentUser: req.session.currentUser, metaTitle: "User Tickets Page", tickets: foundTickets});
-        }) 
+            Ticket.find({username: req.session.currentUser.username}, (err, foundTickets) => {
+                res.render("users/index.ejs",{ currentUser: req.session.currentUser, metaTitle: "User Tickets Page", tickets: foundTickets});
+            });
     } else {
         res.redirect("/sessions/new");
     }

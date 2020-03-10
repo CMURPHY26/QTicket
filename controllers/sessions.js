@@ -38,7 +38,7 @@ router.post("/", (req, res) => {
                 if(!foundUser.isAdmin) {
                     res.redirect("/users");
                 } else {
-                    res.redirect("/");
+                    res.redirect("/admin");
                 }
             } else {
                 res.send("wrong password");

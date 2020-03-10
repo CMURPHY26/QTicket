@@ -16,9 +16,13 @@
               <label for="request">Request:</label>
               <textarea name="request" form="ticketform"><%=ticket.request%></textarea>
             </div>
+            <div class="field">
+              <label for="name">User</label>
+              <input type="text" name="username" id="username" required value="<%=ticket.username%>">
+            </div>
             <button class="ui button" type="submit">Update</button>
           </form><br />
-          <a href="/tickets/<%=id%>"><button class="ui button">Back</button></a>
+            <a href="/tickets/<%=id%>"><button class="ui button">Back</button></a>
       </div>
 </body>
 </html>
