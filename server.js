@@ -11,28 +11,6 @@ const db = mongoose.connection;
 const PORT = process.env.PORT || process.env.LOCALPORT;
 
 
-
-//Middleware
-//___________________
-
-//use public folder for static assets
-app.use(express.static('public'));
-
-// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: true }));// extended: false - does not allow nested objects in query strings
-app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
-
-//use method override
-app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
-//For user session login
-app.use(session({
-    secret: process.env.SECRET, //some random string
-    resave: false,
-    saveUninitialized: false
-}));
-
-
-
 //Database
 //___________________
 // How to connect to the database either via heroku or locally
@@ -58,7 +36,24 @@ const sessionsController = require("./controllers/sessions.js");
 const resolvedTicketsController = require("./controllers/resolve.js");
 
 
+//Middleware
+//___________________
 
+//use public folder for static assets
+app.use(express.static('public'));
+
+// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
+app.use(express.urlencoded({ extended: true }));// extended: false - does not allow nested objects in query strings
+app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
+
+//use method override
+app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
+//For user session login
+app.use(session({
+    secret: process.env.SECRET, //some random string
+    resave: false,
+    saveUninitialized: false
+}));
 // any routes that come in for tickets should be sent
 // to the ticketsContoller
 app.use("/tickets", ticketsController);
