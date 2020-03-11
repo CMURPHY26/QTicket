@@ -72,9 +72,9 @@ router.delete("/:id", (req, res) => {
         Ticket.findByIdAndRemove(req.params.id, (err, deletedTicket) => {
             User.findOne({username:deletedTicket.username}, (err, foundUser) => {
                 if(!req.session.currentUser.isAdmin) {
-                    res.redirect("/users");
+                    res.redirect("/tickets");
                 } else {
-                    res.redirect(`/admin/${foundUser.id}`);
+                    res.redirect(`/users/${foundUser.id}`);
                 }
             })
         })

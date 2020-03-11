@@ -12,7 +12,7 @@ router.put("/:id", (req, res) => {
                 if(!req.session.currentUser.isAdmin) {
                 res.redirect(`/tickets/`)
                 } else {
-                res.redirect(`/admin/${foundUser.id}`);
+                res.redirect(`/users/${foundUser.id}`);
                 };
             })
         });
