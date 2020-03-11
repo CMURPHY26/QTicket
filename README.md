@@ -1,5 +1,8 @@
 # QTicket
 
+### Heroku Hosted App Link:
+https://qticket.herokuapp.com/
+
 ## Technologies Used
 HTML, CSS, JavaScript, jQuery, Node.js, Mongoose, Express and EJS
 
