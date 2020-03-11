@@ -1,9 +1,9 @@
 <nav>
     <div class="ui secondary pointing menu">
         <%if (currentUser === undefined || !currentUser.isAdmin) { %>
-          <a class="active item" href="/users">
+          <a class="active item" href="/tickets">
         <% } else if(currentUser.isAdmin){ %>
-          <a class="active item" href="/admin">
+          <a class="active item" href="/users">
         <% } %>
           <img id="logo" class="ui tiny image" src="../../img/QTicketLogo.jpg">
         </a>

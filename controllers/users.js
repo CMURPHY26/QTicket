@@ -19,16 +19,30 @@ router.get('/new', (req, res) => {
 //     });
 // });
 
+//SHOW USER Tickets
+router.get("/:id", (req, res) => {
+    if(req.session.currentUser) {
+        User.findById(req.params.id, (err, foundUser) => {
+            Ticket.find({username: foundUser.username}, (err, foundTickets) => {
+                res.render("users/show.ejs", {metaTitle: "Admin View for User Tickets", currentUser: req.session.currentUser, user:foundUser, tickets: foundTickets});
+            });
+        });
+    } else {
+        res.redirect("/");
+    }
+});
+
+
 //INDEX Users
 router.get("/", (req, res) => {
     if(req.session.currentUser) {
-            Ticket.find({username: req.session.currentUser.username}, (err, foundTickets) => {
-                res.render("users/index.ejs",{ currentUser: req.session.currentUser, metaTitle: "User Tickets Page", tickets: foundTickets});
-            });
+        User.find({}, (err, foundUsers) => {
+            res.render("users/index.ejs", {metaTitle: "Admin Homepage", currentUser: req.session.currentUser, users:foundUsers});
+        })
     } else {
-        res.redirect("/sessions/new");
+        res.redirect("/");
     }
-});
+})
 
 //CREATE User
 router.post("/", (req, res) => {

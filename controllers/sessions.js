@@ -36,9 +36,10 @@ router.post("/", (req, res) => {
             if(bcrypt.compareSync(req.body.password, foundUser.password)) {
                 req.session.currentUser = foundUser;
                 if(!foundUser.isAdmin) {
-                    res.redirect("/users");
+                    console.log(foundUser)
+                    res.redirect("/tickets", );
                 } else {
-                    res.redirect("/admin");
+                    res.redirect("/users");
                 }
             } else {
                 res.send("wrong password");

@@ -39,11 +39,11 @@
                     <button class="ui fluid button" type="submit">DELETE</button>
                 </form><br />
                 <% if(!currentUser.isAdmin) { %>
-                <a href="/users/">
+                <a href="/tickets/">
                     <button class="ui fluid button" >BACK</button>
                 </a>
                 <% } else { %>
-                  <a href="/admin/<%=userid%>">
+                  <a href="/users/<%=userid%>">
                     <button class="ui fluid button" >BACK</button>
                 </a>
                 <%  } %>

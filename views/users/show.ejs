@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include("./partials/head.ejs") %>
+    <%- include("../partials/head.ejs") %>
 </head>
 <body>  
-    <%- include("./partials/nav.ejs") %>
+    <%- include("../partials/nav.ejs") %>
     
         <% if (currentUser) { %>
             <div class="welcome">
-                <h2>Welcome <%= currentUser.username %>!</h2>
+                <h2>User Tickets for <%= user.username %>!</h2>
             </div>
         <% } %>
     

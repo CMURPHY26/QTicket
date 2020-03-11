@@ -14,23 +14,19 @@
     
     <% if (currentUser) { %>
         <div class="ui raised very padded text container segment">
-            <h2 class="ui header">Submitted Tickets</h2>
+            <h2 class="ui header">Users</h2>
                 <div class="ui centered cards">
-                <% for(let i = 0; i < tickets.length; i++) { %>
-                    <% if(!tickets[i].resolved) { %>
-                                <div class="card">
-                                    <div class="content">
-                                        <div class="header">
-                                            <a href="/tickets/<%=tickets[i].id%>">
-                                                <%=tickets[i].name%>
-                                            </a>
-                                        </div>
-                                        <div class="meta">user: <%=tickets[i].username%></div>
-                                        <div class="description">
-                                            <%=tickets[i].request.substring(0, 100)%>...
-                                        </div>
-                                    </div>
-                                </div>
+                <% for(let i = 0; i < users.length; i++) { %>
+                    <% if (!users[i].isAdmin) { %>
+                    <div class="card">
+                        <div class="content">
+                            <div class="header">
+                                <a href="/users/<%= users[i].id%>">
+                                    <%=users[i].username%>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <% } %>
                <% } %>
             </div>

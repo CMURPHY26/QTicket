@@ -62,7 +62,7 @@ router.post("/", (req, res) => {
     req.body.username = req.session.currentUser.username;
     Ticket.create(req.body, (err, createdTicket) => {
         console.log(createdTicket);
-        res.redirect("/users");
+        res.redirect("/tickets");
     })
 })
 
@@ -87,7 +87,9 @@ router.delete("/:id", (req, res) => {
 //INDEX Tickets
 router.get("/", (req, res) => {
     if(req.session.currentUser) {
-        res.redirect("/users");
+        Ticket.find({username: req.session.currentUser.username}, (err, foundTickets) => {
+            res.render("index.ejs",{ currentUser: req.session.currentUser, metaTitle: "User Tickets Page", tickets: foundTickets});
+        });
     } else {
         res.redirect("/sessions/new");
     }
